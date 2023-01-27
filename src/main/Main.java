@@ -1,6 +1,7 @@
 package main;
 
 import modelo.Estudiante;
+import service.EnvioMaterial;
 
 public class Main {
     public static void main(String[] args) {
@@ -10,6 +11,8 @@ public class Main {
                 new Estudiante("Liliana", "Industrial")
         };
         verMateriasEstudiantes(listadoEstudiantes);
+        EnvioMaterial material = new EnvioMaterial();
+        material.enviarMaterialEstudiante(new Estudiante("Daniel", "Informatica"));
     }
 
     public static void verMateriasEstudiantes(Estudiante[] estudiantes) {
