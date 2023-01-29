@@ -1,9 +1,8 @@
 package service;
-
 import modelo.Envio;
 
+//Principio Dependency Inversion
 public class EmailOutlook implements ServicioEmail{
-
     @Override
     public void enviarEmail(Envio envio) {
         System.out.println("ESTABLECIENDO CONEXION CON EL SERVIDOR OUTLOOK BY MICROSOFT (...)");

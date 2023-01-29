@@ -1,15 +1,15 @@
 package main;
-
-
 import modelo.Envio;
 import modelo.Estudiante;
 import modelo.Informatica;
-import modelo.IngenieriaIndustrial;
-import modelo.Negocios;
-import modelo.VerMaterias;
+import modelo.Industrial;
+import modelo.Administrador;
 import service.EmailGmail;
 import service.EmailOutlook;
 import service.EnvioMaterial;
+import service.MySQL;
+import service.Oracle;
+import service.ServicioGuardar;
 
 public class Main {
     public static void main(String[] args) {
@@ -17,14 +17,27 @@ public class Main {
         Estudiante[] listadoEstudiantes = {
                 new Informatica("Daniel"),
                 //new IngenieriaIndustrial("Camila"),
-                //new Negocios("Nicolas")
-            
+                //new Negocios("Nicolas")  
         };
-        VerMaterias.verMateriasEstudiantes(listadoEstudiantes);
+        //Principio Dependency Inversion
+        verMateriasEstudiantes(listadoEstudiantes);
         EnvioMaterial material = new EnvioMaterial(new EmailOutlook(), new Envio());
         material.enviarMaterialEstudiante(new Informatica("Daniel"));
         //material.enviarMaterialEstudiante(new IngenieriaIndustrial("Camila"));
         //material.enviarMaterialEstudiante(new Negocios("Nicolas"));
 
+        ServicioGuardar servicio = new ServicioGuardar(new MySQL());
+        servicio.guardar();
     }
+
+    //Principio Open/Closed
+    public static void verMateriasEstudiantes(Estudiante[] estudiantes) {
+        for (Estudiante estudiante : estudiantes) { 
+            System.out.println(estudiante.asignaturas);
+        }
+    }
+
+    
+    
 }
+
