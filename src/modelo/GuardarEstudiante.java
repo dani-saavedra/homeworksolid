@@ -1,9 +1,6 @@
 package modelo;
 
-public class GuardarEstudiante{
-    
-    void guardarEstudiante() {
-        System.out.println("Guardando estudiante en base de datos");
-    }
-
+//Principio de Responsabilidad Única
+public interface GuardarEstudiante{
+    void guardarEstudiante();
 }

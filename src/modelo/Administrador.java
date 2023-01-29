@@ -2,14 +2,13 @@ package modelo;
 import java.util.Arrays;
 import java.util.List;
 
-public class Negocios extends Estudiante {
+public class Administrador extends Estudiante {
     
 
-    public Negocios(String nombre){
-
-        super(nombre,asignaturas(),materiales(), "Bienvenido al programa de Negocios, adjunto material necesario");
-        
+    public Administrador(String nombre){
+        super(nombre,asignaturas(),materiales(), "Bienvenido al programa de Negocios, adjunto material necesario");  
     }
+    
     private static List<String> asignaturas() {
         return Arrays.asList("Negocios, Administracion I, Historia de la Administracion");
     }
