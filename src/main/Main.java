@@ -1,31 +1,30 @@
 package main;
 
+
+import modelo.Envio;
 import modelo.Estudiante;
+import modelo.Informatica;
+import modelo.IngenieriaIndustrial;
+import modelo.Negocios;
+import modelo.VerMaterias;
+import service.EmailGmail;
+import service.EmailOutlook;
 import service.EnvioMaterial;
 
 public class Main {
     public static void main(String[] args) {
-        Estudiante[] listadoEstudiantes = {
-                new Estudiante("Daniel", "Informatica"),
-                new Estudiante("Monica", "Administracion"),
-                new Estudiante("Liliana", "Industrial")
-        };
-        verMateriasEstudiantes(listadoEstudiantes);
-        EnvioMaterial material = new EnvioMaterial();
-        material.enviarMaterialEstudiante(new Estudiante("Daniel", "Informatica"));
-    }
 
-    public static void verMateriasEstudiantes(Estudiante[] estudiantes) {
-        for (Estudiante estudiante : estudiantes) {
-            if (estudiante.carrera.equals("Informatica")) {
-                System.out.println("Programacion, Arquitectura, Base de datos");
-            }
-            if (estudiante.carrera.equals("Administracion")) {
-                System.out.println("Negocios, Administracion I, Historia de la Administracion");
-            }
-            if (estudiante.carrera.equals("Industrial")) {
-                System.out.println("Procesos, Analitica de datos, Gestion de Calidad ");
-            }
-        }
+        Estudiante[] listadoEstudiantes = {
+                new Informatica("Daniel"),
+                //new IngenieriaIndustrial("Camila"),
+                //new Negocios("Nicolas")
+            
+        };
+        VerMaterias.verMateriasEstudiantes(listadoEstudiantes);
+        EnvioMaterial material = new EnvioMaterial(new EmailOutlook(), new Envio());
+        material.enviarMaterialEstudiante(new Informatica("Daniel"));
+        //material.enviarMaterialEstudiante(new IngenieriaIndustrial("Camila"));
+        //material.enviarMaterialEstudiante(new Negocios("Nicolas"));
+
     }
 }

@@ -2,10 +2,11 @@ package service;
 
 import modelo.Envio;
 
-public class EmailOutlook {
+public class EmailOutlook implements ServicioEmail{
 
-    void enviarEmail(Envio envio) {
-        System.out.println("ESTABLECIENDO CONEXION CON EL SERVIDOR");
-        System.out.println("EMAIL ENVIADO y correspondencia " + envio);
+    @Override
+    public void enviarEmail(Envio envio) {
+        System.out.println("ESTABLECIENDO CONEXION CON EL SERVIDOR OUTLOOK BY MICROSOFT (...)");
+        System.out.println("NOTIFICACIÓN: EMAIL ENVIADO y correspondencia \n " + envio);
     }
 }

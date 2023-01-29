@@ -3,12 +3,11 @@ package service;
 import modelo.Envio;
 import modelo.Estudiante;
 
-import java.util.ArrayList;
 
-public class EnvioMaterial {
+/*public class EnvioMaterial {
 
     public void enviarMaterialEstudiante(Estudiante estudiante) {
-        if (estudiante.carrera.equals("Informatica")) {
+        if (estudiante.getCarrera() instanceof Informatica) {
             Envio envio = new Envio();
             envio.material = new ArrayList<>();
             envio.material.add("Computador");
@@ -17,11 +16,34 @@ public class EnvioMaterial {
             EmailOutlook email = new EmailOutlook();
             email.enviarEmail(envio);
         }
-        if (estudiante.carrera.equals("Administracion")) {
+        if (estudiante.getCarrera() instanceof Negocios) {
             //lo mismo de arriba pero con otra informacion
         }
-        if (estudiante.carrera.equals("Industrial")) {
+        if (estudiante.getCarrera() instanceof IngenieriaIndustrial) {
             //
         }
     }
+}*/
+
+public class EnvioMaterial {
+
+    
+    private ServicioEmail servicioEmail;
+    private Envio envio; 
+    
+    public EnvioMaterial (ServicioEmail servicioEmail, Envio envio){
+        this.servicioEmail=servicioEmail;
+        this.envio=envio;
+    }
+
+
+    public void enviarMaterialEstudiante(Estudiante estudiante) {
+;
+        envio.materiales = estudiante.materiales;
+        envio.saludoDirector = estudiante.saludoDirector;
+        servicioEmail.enviarEmail(envio);
+        
+
 }
+}
+
